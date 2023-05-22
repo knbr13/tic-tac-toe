@@ -30,7 +30,7 @@ const Project = ({ title, desc, link }) => {
         <a href={link} target="_blank" rel="noreferrer" className="underline bg-gray-400 p-1 rounded-md">Check it out!</a>
       </div>
       
-      <img className="w-32 md:w-64 h-32 md:h-60" src={`assets/${projectTitle}.png`} alt={projectTitle} />
+      <img className="w-32 md:w-64 h-32 md:h-60" src={`/assets/${projectTitle}.png`} alt={projectTitle} />
     </motion.div>
   );
 };
