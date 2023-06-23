@@ -15,7 +15,7 @@ const projectVariant = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const Project = ({ title, desc, link }) => {
+const Project = ({ title, desc, link, displayedTitle }) => {
   const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90 transition duration-500
     bg-grey z-30 flex flex-col justify-center items-center text-center p-16 text-deep-blue`;
   const projectTitle = title.split(" ").join("-").toLowerCase();
@@ -23,7 +23,7 @@ const Project = ({ title, desc, link }) => {
   return (
     <motion.div variants={projectVariant} className="relative w-32 md:w-64 h-32 md:h-60">
       <div className={overlayStyles}>
-        <p className="text-2xl font-playfair">{title}</p>
+        <p className="text-2xl font-playfair">{displayedTitle}</p>
         <p className="mt-7">
           {desc}
         </p>
@@ -72,9 +72,10 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <Project title={"Project 1"} link={"https://match-with-spongebob.netlify.app/"}/>
-          <Project title={"Project 2"} link={"https://basic-code-editor-me.netlify.app/"}/>
-          <Project title={"Project 3"} link={"https://iline.onrender.com/"}/>
+          <Project title={"Project 1"} displayedTitle={"Match With Spongebob"} link={"https://match-with-spongebob.netlify.app/"}/>
+          <Project title={"Project 2"} displayedTitle={"Youtube Clone"} link={"https://youtube-react-js-clone.netlify.app/"}/>
+          <Project title={"Project 3"} displayedTitle={"Local Git Commits Visualizer"} link={"https://github.com/abdullah-alaadine/local-git-contributions-visualizer/"}/>
+          <Project title={"Project 4"} displayedTitle={"Password Generator"} link={"https://github.com/abdullah-alaadine/password-generator/"}/>
         </motion.div>
       </div>
     </section>
