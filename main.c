@@ -85,6 +85,11 @@ void switch_player()
         current_player = 'X';
 }
 
+int is_valid_move(int row, int col)
+{
+    return row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ';
+}
+
 int main()
 {
     printf("hello world\n");
