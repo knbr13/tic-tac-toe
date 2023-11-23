@@ -57,11 +57,6 @@ int check_rows()
     return 0;
 }
 
-int check_win()
-{
-    return check_columns || check_rows || check_diagonals;
-}
-
 int check_columns()
 {
     for (int i = 0; i < 3; i++)
@@ -83,6 +78,11 @@ int check_diagonals()
     return 0;
 }
 
+int check_win()
+{
+    return check_columns || check_rows || check_diagonals;
+}
+
 void switch_player()
 {
     if (current_player == 'X')
@@ -96,6 +96,24 @@ int is_valid_move(int row, int col)
     return row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ';
 }
 
+void clear_input_buffer()
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+}
+
 int main()
 {
+    clear_console();
+    while (1)
+    {
+        // print_board();
+
+        int row, col;
+        printf("Player %c's turn. Enter your move (row column): ", current_player);
+        scanf("%d %d", &row, &col);
+        printf("row: %d, col: %d\n", row, col);
+        clear_input_buffer();
+    }
 }
