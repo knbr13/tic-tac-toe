@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 const char padding[5] = "    ";
 
-const char board[3][3] = {
+char board[3][3] = {
     {' ', ' ', ' '},
     {' ', ' ', ' '},
     {' ', ' ', ' '},
@@ -56,6 +57,11 @@ int check_rows()
     return 0;
 }
 
+int check_win()
+{
+    return check_columns || check_rows || check_diagonals;
+}
+
 int check_columns()
 {
     for (int i = 0; i < 3; i++)
@@ -92,5 +98,4 @@ int is_valid_move(int row, int col)
 
 int main()
 {
-    printf("hello world\n");
 }
