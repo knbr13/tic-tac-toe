@@ -8,6 +8,8 @@ const char board[3][3] = {
     {' ', ' ', ' '},
 };
 
+char current_player = 'X';
+
 void clear_console()
 {
     system("clear || cls");
@@ -73,6 +75,14 @@ int check_diagonals()
     if (board[0][3] != ' ' && board[0][3] == board[1][1] && board[1][1] == board[2][0])
         return 1;
     return 0;
+}
+
+void switch_player()
+{
+    if (current_player == 'X')
+        current_player = 'O';
+    else
+        current_player = 'X';
 }
 
 int main()
