@@ -33,15 +33,16 @@ const char *print_cell(const char c)
 
 void print_board()
 {
-    printf("\n%s+---+---+---+\n", padding);
+    printf("\n%s    1   2   3  ", padding);
+    printf("\n%s  +---+---+---+\n", padding);
     for (int i = 0; i < 3; i++)
     {
-        printf("%s|", padding);
+        printf("%s%d |", padding, i + 1);
         for (int j = 0; j < 3; j++)
         {
             printf("%s|", print_cell(board[i][j]));
         }
-        printf("\n%s+---+---+---+\n", padding);
+        printf("\n%s  +---+---+---+\n", padding);
     }
 }
 
@@ -124,7 +125,7 @@ int main()
         print_board();
 
         int row, col;
-        printf("\n%sPlayer %c's turn. Enter your move (row column): ", padding, current_player);
+        printf("\n%sPlayer %c's turn. \n%sEnter your move (row column): ", padding, current_player, padding);
         scanf("%d %d", &row, &col);
         clear_input_buffer();
 
@@ -133,16 +134,18 @@ int main()
         if (is_valid_move(row, col))
         {
             board[row][col] = current_player;
+            clear_console();
+            print_board();
 
             if (check_win())
             {
-                printf("%splayer %c wins\n", padding, current_player);
+                printf("\n%s  player %c wins\n", padding, current_player);
                 break;
             }
 
             if (check_draw())
             {
-                printf("%sdraw!\n", padding);
+                printf("\n%s  draw!\n", padding);
                 break;
             }
 
