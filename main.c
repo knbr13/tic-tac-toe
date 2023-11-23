@@ -8,6 +8,11 @@ const char board[3][3] = {
     {' ', ' ', ' '},
 };
 
+void clear_console()
+{
+    system("clear || cls");
+}
+
 const char *print_cell(const char c)
 {
     switch (c)
