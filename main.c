@@ -61,6 +61,15 @@ int check_columns()
     return 0;
 }
 
+int check_diagonals()
+{
+    if (board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2])
+        return 1;
+    if (board[0][3] != ' ' && board[0][3] == board[1][1] && board[1][1] == board[2][0])
+        return 1;
+    return 0;
+}
+
 int main()
 {
     printf("hello world\n");
