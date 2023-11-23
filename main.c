@@ -80,7 +80,7 @@ int check_diagonals()
 
 int check_win()
 {
-    return check_columns || check_rows || check_diagonals;
+    return check_columns() || check_rows() || check_diagonals();
 }
 
 void switch_player()
@@ -105,15 +105,29 @@ void clear_input_buffer()
 
 int main()
 {
-    clear_console();
     while (1)
     {
-        // print_board();
+        clear_console();
+        print_board();
 
         int row, col;
-        printf("Player %c's turn. Enter your move (row column): ", current_player);
+        printf("\n%sPlayer %c's turn. Enter your move (row column): ", padding, current_player);
         scanf("%d %d", &row, &col);
-        printf("row: %d, col: %d\n", row, col);
         clear_input_buffer();
+
+        row--;
+        col--;
+        if (is_valid_move(row, col))
+        {
+            board[row][col] = current_player;
+
+            if (check_win())
+            {
+                printf("%splayer %c wins\n", padding, current_player);
+                break;
+            }
+
+            switch_player(current_player);
+        }
     }
 }
