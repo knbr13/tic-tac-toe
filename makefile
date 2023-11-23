@@ -1,8 +1,8 @@
 build:
-	@gcc -o output *.c
+	@gcc -o tic-tac-toe *.c
 
 run:
-	@./output
+	@./tic-tac-toe
 
 clear:
 	clear
