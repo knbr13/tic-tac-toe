@@ -1,5 +1,5 @@
 build:
-	@g++ -o output *.c
+	@gcc -o output *.c
 
 run:
 	@./output
