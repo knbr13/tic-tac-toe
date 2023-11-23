@@ -83,6 +83,19 @@ int check_win()
     return check_columns() || check_rows() || check_diagonals();
 }
 
+int check_draw()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (board[i][j] == ' ')
+                return 0;
+        }
+    }
+    return 1;
+}
+
 void switch_player()
 {
     if (current_player == 'X')
@@ -124,6 +137,12 @@ int main()
             if (check_win())
             {
                 printf("%splayer %c wins\n", padding, current_player);
+                break;
+            }
+
+            if (check_draw())
+            {
+                printf("%sdraw!\n", padding);
                 break;
             }
 
