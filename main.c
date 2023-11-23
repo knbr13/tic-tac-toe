@@ -37,6 +37,18 @@ void print_board()
     }
 }
 
+int checkRows()
+{
+    for (int i = 0; i < 3; i++)
+    {
+        if (board[i][0] != ' ' && board[i][0] == board[i][1] && board[i][1] == board[i][2])
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int main()
 {
     printf("hello world\n");
