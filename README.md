@@ -2,6 +2,8 @@
 
 A simple command-line implementation of the classic Tic Tac Toe game in C.
 
+![Tic-Tac-Toe](./tic-tac-toe-c.gif)
+
 ## How to Play
 
 1. Clone the repository:
