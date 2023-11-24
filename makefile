@@ -7,4 +7,4 @@ run:
 clear:
 	clear
 
-all: clear build run
+start: clear build run
