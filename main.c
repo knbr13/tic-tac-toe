@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const char padding[5] = "    ";
+const char padding[4] = "   ";
 
 char board[3][3] = {
     {' ', ' ', ' '},
@@ -129,6 +129,20 @@ void reset_game()
     current_player = 'X';
 }
 
+int restart_prompt()
+{
+    char restart;
+    printf("\n%s y for yes, other for no\n%s do you want to restart? ", padding, padding);
+    scanf("%c", &restart);
+
+    if (restart == 'y' || restart == 'Y')
+    {
+        return 1;
+    }
+
+    return 0;
+}
+
 int main()
 {
     while (1)
@@ -152,12 +166,24 @@ int main()
             if (check_win())
             {
                 printf("\n%s  player %c wins\n", padding, current_player);
+                int i = restart_prompt();
+                if (i)
+                {
+                    reset_game();
+                    continue;
+                }
                 break;
             }
 
             if (check_draw())
             {
                 printf("\n%s  draw!\n", padding);
+                int i = restart_prompt();
+                if (i)
+                {
+                    reset_game();
+                    continue;
+                }
                 break;
             }
 
